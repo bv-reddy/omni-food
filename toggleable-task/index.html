@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Lato", sans-serif;
+      }
+
+      /* Style the tab */
+      .tab {
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        width: 30%;
+        height: 300px;
+      }
+
+      /* Style the buttons inside the tab */
+      .tab button {
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 22px 16px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+      /* Change background color of buttons on hover */
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current "tab button" class */
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        float: left;
+        padding: 0px 12px;
+        border: 1px solid #ccc;
+        width: 70%;
+        border-left: none;
+        height: 300px;
+      }
+      li {
+        list-style: none;
+        display: inline;
+      }
+      /* img {
+        display: inline;
+      } */
+
+      .imges {
+        /* display: grid; */
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <h2>Vertical Tabs</h2>
+    <p>Click on the buttons inside the tabbed menu:</p>
+
+    <div class="tab">
+      <button
+        class="tablinks"
+        onclick="openCity(event, 'London')"
+        id="defaultOpen"
+      >
+        Flowers
+      </button>
+      <button class="tablinks" onclick="openCity(event, 'Paris')">
+        Fruits
+      </button>
+      <button class="tablinks" onclick="openCity(event, 'Tokyo')">
+        Animals
+      </button>
+    </div>
+
+    <div id="London" class="tabcontent">
+      <h3>Flowers</h3>
+      <p>
+        “If you look the right way, you can see that the whole world is a
+        garden.”
+      </p>
+      <!-- <p>-Frances Hodgson Burnett.</p> -->
+      <ul>
+        <li><img src="./flower(1).jpg" alt="" class="imges" /></li>
+        <li><img src="./flower(2).jpg" alt="" class="imges" /></li>
+        <li><img src="./flower(3).jpg" alt="" class="imges" /></li>
+        <li><img src="./flower(4).jpg" alt="" class="imges" /></li>
+        <li><img src="./flower(5).jpg" alt="" class="imges" /></li>
+      </ul>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+      <h3>Fruits</h3>
+      <p>Life without love is like a tree without blossoms or fruit.</p>
+      <ul>
+        <li><img src="./animal(1).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(2).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(3).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(4).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(5).jpg" alt="" class="imges" /></li>
+      </ul>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+      <h3>Animals</h3>
+      <p>
+        “Outside of a dog, a book is man's best friend. Inside of a dog it's too
+        dark to read.”
+      </p>
+      <ul>
+        <li><img src="./animal(1).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(2).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(3).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(4).jpg" alt="" class="imges" /></li>
+        <li><img src="./animal(5).jpg" alt="" class="imges" /></li>
+      </ul>
+    </div>
+
+    <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>
